@@ -34,6 +34,7 @@ SECRET_KEY = env('Key')
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'movieweb',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -74,21 +75,7 @@ WSGI_APPLICATION = 'moviesapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': env('DATABASE'),
-
-        'USER': env('USER'),
-
-        'PASSWORD': env('PASSWORD'),
-
-        'HOST': env('HOST'),
-
-        'PORT': env('PORT'),
-    }
-}
 
 
 # Password validation
