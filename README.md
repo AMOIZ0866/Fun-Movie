@@ -80,9 +80,7 @@ python manage.py runserver
 ```
 
 ## Run Test Cases
-- For All Apps
-- For Single App
-- Using Specific pattern
+
 ```
 python manage.py test
 python manage.py test {{app_name}}
@@ -91,16 +89,13 @@ python manage.py test --pattern=test_*.py"
 
 ## Git Branching Structure
 - Default latest branch is **Staging**
-- Dev branching naming structure is based on **Jira Ticket No**.
+- Dev is child branch for development
 - Every task branch finally merged in Staging upon completion/review.
-- **Hot Fix** branches are merged directly in staging upon lead approval.
 
 ## Overview of Platforms
-- Admin: https://app.enmassenergy.com/
-- Customer: https://app.enmassenergy.com/customers/
-- Supplier: https://app.enmassenergy.com/suppliers/
-- Transporter: https://app.enmassenergy.com/carriers/
-- REST API Docs: https://app.enmassenergy.com/docs/
+Login- It is same for user and admin
+Admin- Admin can add other users
+User- User can sign up through signup page
 
 ## How to deploy new changes
 - Create a new branch from **staging** branch
