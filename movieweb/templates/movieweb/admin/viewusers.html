@@ -1,0 +1,178 @@
+{% extends 'movieweb/admin/adminbase.html' %}
+ {% block homecontent %}
+
+
+
+  <script>
+  $(document).ready(function(){
+
+     $('#btnEdit').click(function(e){
+       e.preventDefault();
+      $("input[name='name']").prop("readonly", false);
+     });
+ });
+  </script>
+
+ <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+      <h3 class="text-center" l>ADD USER</h3>
+    <div class="addadminsection" style="padding-top: 0">
+  <div class="row">
+    <div class="col-lg-12  d-flex justify-content-center loginform" style="padding-top: 10px">
+
+      <form role="form" action={% url 'adduser' %} method="post"  enctype="multipart/form-data">{% csrf_token %}
+       <div class="form-group">
+          <input type="email" name="email" class="form-control" id="email" placeholder="EMAIL">
+        </div>
+      <div class="form-group">
+          <input type="text" name="username" class="form-control" id="username" placeholder="USERNAME">
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" class="form-control" id="password" placeholder="PASSWORD">
+        </div>
+        <div class="text-center"><button class="rounded-pill" type="submit">Add User</button></div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+    </div>
+
+ <div class="row pt-2 pb-5">
+ <div class="col-lg-10 text-center"><h3>Users List</h3></div>
+     <div class="col-lg-2"> <button class="btn btn-primary"  id="myBtn">Add User</button></div>
+
+ </div>
+<div class="list-group">
+ <div class="text-center">
+    <div class="row ml-2">
+        <div class="col-2">
+            <p>USERNAME</p>
+        </div>
+        <div class="col-1">
+            <p>Type</p>
+        </div>
+        <div class="col-2">
+            <p>EMAIL</p>
+        </div>
+        <div class="col-1">
+            <p>STATUS</p>
+        </div>
+        <div class="col-2">
+            <p>CREATION</p>
+        </div>
+        <div class="col-2">
+            <p>UPDATE DATE</p>
+        </div>
+    </div>
+ </div>
+<div class="text-center">
+{% for d in movies %}
+    {% if d.type %}
+  <div class="list-group-item list-group-item-action list-group-item-primary">
+
+     <div class="row d-flex justify-content-center pl-2">
+        <div class="col-2">
+            <p>{{ d.username }}</p>
+        </div>
+          <div class="col-1">
+            <p>ADMIN</p>
+        </div>
+        <div class="col-2 ">
+            <p>{{ d.email }}</p>
+        </div>
+        <div class="col-1">
+            <p>{{ d.active }}</p>
+        </div>
+        <div class="col-2">
+            <p>{{ d.creation_date }}</p>
+        </div>
+        <div class="col-2">
+            <p>{{ d.update_date }}</p>
+        </div>
+         <div class="col-2">
+{#             <input type = "text" name = "name" value = {{ d.email }} readonly>#}
+                <button style="border: none; background-color: transparent" id="btnEdit" type="submit"><i class=""></i></button>
+        </div>
+    </div>
+
+
+  </div>
+        {% else %}
+        <div class="list-group-item list-group-item-action list-group-item-danger">
+
+     <div class="row d-flex justify-content-center pl-2">
+        <div class="col-2">
+            <p>{{ d.username }}</p>
+        </div>
+            <div class="col-1">
+            <p>USER</p>
+        </div>
+        <div class="col-2 ">
+            <p>{{ d.email }}</p>
+        </div>
+        <div class="col-1">
+            <p>{{ d.active }}</p>
+        </div>
+        <div class="col-2">
+            <p>{{ d.creation_date }}</p>
+        </div>
+        <div class="col-2">
+            <p>{{ d.update_date }}</p>
+        </div>
+         <div class="col-2">
+             <form role="form" action={% url 'viewuser' %} method="post" >{% csrf_token %}
+                <button style="border: none; background-color: transparent" value="{{ d.username }}" name="id" id="id" type="submit"><i class="fas fa-trash"></i></button>
+                 </form>
+        </div>
+    </div>
+
+{#    <span style="padding-left: 100px">{{ d.username }}</span>#}
+{#       <span style="padding-left: 80px">{{ d.email }}</span>#}
+{#       <span style="padding-left: 80px">{{ d.active }}</span>#}
+{#       <span style="padding-left: 120px">{{ d.creation_date }}</span>#}
+{#        <span style="padding-left: 120px">{{ d.update_date }}</span>#}
+
+  </div>
+    {% endif %}
+{% endfor %}
+</div>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+
+
+       {% endblock%}

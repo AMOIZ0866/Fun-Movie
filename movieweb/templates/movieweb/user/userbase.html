@@ -1,0 +1,25 @@
+{% extends 'movieweb/base.html' %}
+
+
+{% block content %}
+
+    <section class="Fouth-Section">
+        <div>
+            <div class="row">
+                <div class="col-lg-2 bg-dark">
+                    <div class="vertical-menu" style="height: 780px">
+                        <a href={% url 'userview' %}>Home</a>
+                        <a href={% url 'login' %}>LogOut</a>
+                    </div>
+                </div>
+                <div class="col-lg-10 bg-light pl-0">
+                    {% block usercontent %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

@@ -35,12 +35,14 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'movieweb',
+    'crispy_forms',
+    'rest_framework.authtoken',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
