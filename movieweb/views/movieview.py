@@ -44,7 +44,8 @@ class EditMovie(TemplateView):
         return render(request, 'movieweb/admin/movieslist.html', {'movies': user})
 
     def post(self, request):
-        Movie.objects.filter(Q(mname=request.POST.get("id", ))).delete()
+        print(request.POST.get('custId'))
+        Movie.objects.filter(Q(mname=request.POST.get('custId'))).delete()
         user = Movie.objects.values()
         return render(request, 'movieweb/admin/movieslist.html', {'movies': user})
 

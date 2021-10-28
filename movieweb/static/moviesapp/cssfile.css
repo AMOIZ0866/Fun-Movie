@@ -460,7 +460,7 @@ vid {
    display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  /*padding-top: 100px; !* Location of the box *!*/
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -501,4 +501,19 @@ vid {
   top:-10px;
   color: #fff;
   border-radius: 50%;
+}
+
+.popup_main_edit{
+    padding: 0;
+}
+
+.open_popup_editbutton{
+  background:Red;
+  border:none;
+
+    border-radius: 5px;
+  /*padding:5px 15px;*/
+    width: 127px;
+    height: 40px;
+  color:#fff;
 }

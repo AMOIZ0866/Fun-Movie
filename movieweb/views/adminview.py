@@ -64,6 +64,6 @@ class ViewUser(TemplateView):
         return render(request, 'movieweb/admin/viewusers.html', {'movies': user})
 
     def post(self, request):
-        Signup.objects.filter(Q(username=request.POST.get("id", ))).delete()
+        Signup.objects.filter(Q(username=request.POST.get("userid", ))).delete()
         user = Signup.objects.values()
         return render(request, 'movieweb/admin/viewusers.html', {'movies': user})

@@ -28,13 +28,14 @@ SECRET_KEY = env('Key')
 
 
 
-
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'movieweb',
+    'sweetify',
     'crispy_forms',
     'rest_framework.authtoken',
     'django.contrib.contenttypes',
