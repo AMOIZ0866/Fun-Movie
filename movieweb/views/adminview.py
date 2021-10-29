@@ -33,9 +33,20 @@ class AddAdminview(TemplateView):
                                                 'update_date': datetime.now()})
         if serializer.is_valid():
             serializer.save()
+            return render(request, 'movieweb/admin/addadmin.html', context={'alert': True})
         else:
-            print(serializer.errors)
-        return render(request, 'movieweb/admin/addadmin.html')
+            emessage = serializer.errors
+            print(emessage.keys())
+            if str(emessage.keys()) == "odict_keys(['email'])":
+                error = "This Email is Already Registered"
+            elif str(emessage.keys()) == "odict_keys(['username'])":
+                error = "This Username is Already Registered"
+            elif str(emessage.keys()) == "odict_keys(['username', 'email'])":
+                error = "This Username And Email is Already Registered"
+            else:
+                error = "Password Error"
+            return render(request,'movieweb/admin/addadmin.html', context={'error': True, 'text': error})
+
 
 
 class AddUser(TemplateView):
@@ -55,7 +66,8 @@ class AddUser(TemplateView):
             serializer.save()
         else:
             print(serializer.errors)
-        return redirect('viewuser')
+        return redirect('adduser')
+
 
 
 class ViewUser(TemplateView):
@@ -67,3 +79,35 @@ class ViewUser(TemplateView):
         Signup.objects.filter(Q(username=request.POST.get("userid", ))).delete()
         user = Signup.objects.values()
         return render(request, 'movieweb/admin/viewusers.html', {'movies': user})
+
+
+class ViewAdminProfile(TemplateView):
+    def post(self, request):
+        data = request.POST.get('username')
+
+        userdetails = Signup.objects.filter(Q(username=data)).values().first()
+        print(userdetails)
+        return render(request, 'movieweb/admin/aprofile.html', context={'userdetails': userdetails})
+
+
+class UpdateAdminProfile(TemplateView):
+    def post(self, request):
+        data = request.POST
+        userdetails = Signup.objects.filter(Q(username=data['username'])).first()
+        serializer = CreateUserSerializer(userdetails,data={
+            'password': data['password'],
+            'email': data['email'],
+            'update_date': datetime.now()}, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return render(request, 'movieweb/admin/aprofile.html' ,context={'alert':True,'user':data['username'],'userdetails':userdetails})
+        else:
+            emessage = serializer.errors
+            print(emessage)
+            if str(emessage.keys()) == "odict_keys(['email'])":
+                error = "This Email is Already Registered"
+            elif str(emessage.keys()) == "odict_keys(['username'])":
+                error = "This Username is Already Registered"
+            else:
+                error = "Password Error"
+            return render(request,'movieweb/admin/aprofile.html', context={'error': True, 'text': error,'user':data['username'],'userdetails':userdetails})

@@ -14,6 +14,12 @@
                         <a href={% url 'editmovie' %}>Add Movies</a>
                         <a href={% url 'login' %}>LogOut</a>
                     </div>
+                    <div class="text-center" style="border: #32324e; background-color: #32324e; height: 50px; width: 270px;">
+                        <form method="post" action={% url 'admin-profile' %}>{% csrf_token %}
+                            <input type="hidden" id="username" name="username" value={{ user }}>
+                        <button style="border: none; background: transparent" type="submit"><span><h3 class="" style="color: white">{{ user }}</h3></span></button>
+                            </form>
+                    </div >
                 </div>
                 <div class="col-lg-10 bg-light pl-0">
                     {% block homecontent %}

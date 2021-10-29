@@ -21,9 +21,15 @@
           <div class="form-group">
            <a href={% url 'password_reset' %} class="link-danger">Forget Password?</a>
         </div>
+            {% if error %}
+          <div class="errordiv" onclick=$(this).hide();>
+              <a class="d-flex justify-content-center" ><span><p>{{ text }}</p></span><span><i class="icon fas fa-window-close"></i></span></a>
+          </div>
+                <br>
+          {% endif %}
         <div class="text-center"><button class="rounded-pill" type="submit">Login To Continue</button></div>
         <div class="text-center text-lg-start mt-4 pt-2">
-          <p class="small fw-bold  mb-0">Don't have Account? <a href="sign-up" class="link-danger">Sign Up</a></p>
+          <p class="small fw-bold  mb-0">Don't have Account? <a href="{% url 'sign-up' %}" class="link-danger">Sign Up</a></p>
         </div>
       </form>
     </div>

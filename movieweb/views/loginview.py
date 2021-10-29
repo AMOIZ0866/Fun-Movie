@@ -2,7 +2,7 @@ from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 
-from movieweb.models import Signup
+from movieweb.models import Signup, Movie
 
 
 class UserLogin(TemplateView):
@@ -11,11 +11,12 @@ class UserLogin(TemplateView):
 
     def post(self, request):
         data = request.POST
+        movies = Movie.objects.values()
         if Signup.objects.filter(Q(username=data['username']) & Q(password=data['password']) & Q(type=True)):
-            return redirect('adminview')
+            return render(request,'movieweb/admin/adminhome.html',context={'user':data['username'],'movies':movies})
         elif Signup.objects.filter(Q(username=data['username']) & Q(password=data['password']) & Q(type=False)):
-            return redirect('userview')
+            return render(request,'movieweb/user/userhome.html',context={'user':data['username'],'movies':movies})
         else:
-            return redirect('login')
+            return render(request, 'movieweb/SL/login.html', context={'error': True, 'text': "Invalid Username Or Password"})
 
 

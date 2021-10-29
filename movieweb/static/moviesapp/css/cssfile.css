@@ -50,7 +50,7 @@
 
 
 .loginsection {
-    background-image: url("bg.jpeg");
+    background-image: url("../bg.jpeg");
     background-color: #cccccc;
     height: 800px;
     background-position: center;
@@ -503,17 +503,89 @@ vid {
   border-radius: 50%;
 }
 
-.popup_main_edit{
-    padding: 0;
+
+
+
+.errordiv{
+    /*padding-top: 10px;*/
+    height: 50px;
+    width: 350px;
+
+    background-color: white;
+    display: block;
+}
+.errordiv a{
+    color: #ff5252 ;
+    padding-top: 12px;
+}
+.errordiv a:hover{
+    color: black ;
 }
 
-.open_popup_editbutton{
+.errordiv i{
+    padding-left: 10px;
+    color: black ;
+}
+.errordiv i:hover{
+    color: #76b5ee;
+}
+
+
+
+.open_popup_edit{
   background:Red;
   border:none;
-
     border-radius: 5px;
   /*padding:5px 15px;*/
     width: 127px;
     height: 40px;
   color:#fff;
+}
+
+
+.popup_body_edit{
+   display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  /*padding-top: 100px; !* Location of the box *!*/
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 700px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.popup_body_show_edit{
+  display:block;
+    width: 100%; /* Full width */
+  height: 100%;
+  /*-webkit-transition: 300ms;*/
+  /*  -moz-transition: 300ms;*/
+  /*  -o-transition: 300ms;*/
+  /*  -ms-transition: 300ms;*/
+  /*  transition: 300ms;*/
+}
+.popup_back_edit{
+  background: rgba(0,0,0,0.4);
+  position: fixed;
+  left:0;right:0;top:0;bottom:0;
+}
+.popup_contain_edit{
+  position:relative;
+  background:#fff;
+  min-width:300px;
+  max-width:80%;
+  margin:100px auto 50px;
+  min-height:150px;
+  padding: 10px 20px;
+}
+.popup_close_edit{
+  background:red;
+  padding:3px 10px 5px;
+  position: absolute;
+  right:-10px;
+  top:-10px;
+  color: #fff;
+  border-radius: 50%;
 }

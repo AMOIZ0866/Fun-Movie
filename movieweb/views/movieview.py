@@ -24,7 +24,8 @@ class AddMovie(TemplateView):
             serializer.save()
         else:
             print(serializer.errors)
-        return redirect('editmovie')
+        movies = Movie.objects.values()
+        return render(request,"movieweb/admin/movieslist.html",context={'alert':True ,'movies':movies})
 
 
 class UpdateRating(TemplateView):
@@ -44,8 +45,8 @@ class EditMovie(TemplateView):
         return render(request, 'movieweb/admin/movieslist.html', {'movies': user})
 
     def post(self, request):
-        print(request.POST.get('custId'))
-        Movie.objects.filter(Q(mname=request.POST.get('custId'))).delete()
+        print(request.POST.get('custId', ))
+        Movie.objects.filter(Q(mname=request.POST.get('custId', ))).delete()
         user = Movie.objects.values()
         return render(request, 'movieweb/admin/movieslist.html', {'movies': user})
 
@@ -54,6 +55,7 @@ class UpdateMovie(TemplateView):
     def post(self, request):
         data = request.POST
         pick_record = Movie.objects.filter(Q(mname=data['mname'])).first()
+        movies=Movie.objects.values()
 
         serializer = MovieSerializer(pick_record, data={'mname': data['mname'],
                                                         'shortdesc': data['shortdesc'],
@@ -64,4 +66,4 @@ class UpdateMovie(TemplateView):
                                                         'update_date': datetime.now()}, partial=True)
         if serializer.is_valid():
             serializer.save()
-        return redirect("editmovie")
+        return render(request,"movieweb/admin/movieslist.html",context={'alert':True ,'movies':movies})

@@ -1,6 +1,8 @@
 from datetime import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
+from sweetify import sweetify
+
 from movieweb.serialization import CreateUserSerializer
 
 
@@ -18,9 +20,14 @@ class UserSignUp(TemplateView):
                                                 'update_date': datetime.now()})
         if serializer.is_valid():
             serializer.save()
+            return redirect('/movies/login')
         else:
-            print(serializer.errors)
-        return render(request, 'movieweb/SL/signup.html')
-
-
-
+            emessage = serializer.errors
+            error=""
+            if str(emessage.keys()) == "odict_keys(['email'])":
+                error="This Email is Already Registered"
+            elif str(emessage.keys()) == "odict_keys(['username'])":
+                error = "This Username is Already Registered"
+            else:
+                error = "Password Error"
+            return render(request, 'movieweb/SL/signup.html', context={'error':True, 'text':error})

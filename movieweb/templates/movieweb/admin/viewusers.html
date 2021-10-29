@@ -53,8 +53,13 @@ function(isConfirm){
                                         <input type="password" name="password" class="form-control" id="password"
                                                placeholder="PASSWORD">
                                     </div>
+                                      {% if error %}
+          <div class="errordiv" onclick=$(this).hide();>
+              <a class="d-flex justify-content-center" ><span><p>{{ text }}</p></span><span><i class="icon fas fa-window-close"></i></span></a>
+          </div>
+          {% endif %}
                                     <div class="text-center">
-                                        <button class="rounded-pill" type="submit">SignUp To Continue</button>
+                                        <button class="rounded-pill" type="submit">Add User</button>
                                     </div>
 
                                 </form>
@@ -131,6 +136,13 @@ function(isConfirm){
         });
 
     </script>
+
+
+     {% if alert %}
+        <script>
+            swal('Added Successfully')
+        </script>
+    {% endif %}
     <script>
         $(document).ready(function () {
             $('#table_db').DataTable({

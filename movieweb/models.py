@@ -6,7 +6,7 @@ from django.db.models.fields import BooleanField
 
 class Signup(models.Model):
     username = models.CharField(max_length=20, unique=True)
-    password = models.CharField(max_length=20, unique=True)
+    password = models.CharField(max_length=20,)
     email = models.CharField(max_length=50, unique=True)
     type = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
