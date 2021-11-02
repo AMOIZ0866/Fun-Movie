@@ -48,13 +48,13 @@
                                         <div class="col-lg-10 pl-5">
                                             <h3>{{ d.mname }}</h3>
                                             <p>{{ d.shortdesc }}</p>
-                                            <p>Rating: {{ d.mrating }}</p>
+                                            <p>Rating: {{ d.rating }}</p>
                                             <p><small>{{ d.longdesc }}</small></p>
                                             <form role="form" action='{% url 'up-rating' %}' method="POST"
                                                   enctype="multipart/form-data">{% csrf_token %}
                                                 <input type="text" name="rating" id="rating" placeholder="Rating">
                                                 <input type="text" name="review" id="review" placeholder="Review">
-                                                <button class="rounded-pill btn btn-primary" value="{{ d.mname }}"
+                                                <button class="rounded-pill btn btn-primary" value="{{ d.id }}"
                                                         name="id" id="id" type="submit">ADD
                                                 </button>
                                             </form>

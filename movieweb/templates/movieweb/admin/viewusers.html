@@ -42,15 +42,15 @@ function(isConfirm){
                                 <form role="form" action={% url 'adduser' %} method="post" id="logform"
                                       enctype="multipart/form-data">{% csrf_token %}
                                     <div class="form-group">
-                                        <input type="text" name="email" class="form-control" id="email"
+                                        <input type="text" name="email" class="form-control" id="email" required
                                                placeholder="EMAIL">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="username" class="form-control" id="username"
+                                        <input type="text" name="username" class="form-control" id="username" required
                                                placeholder="USERNAME">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-control" id="password"
+                                        <input type="password" name="password" class="form-control" id="password" required
                                                placeholder="PASSWORD">
                                     </div>
                                       {% if error %}
@@ -81,9 +81,9 @@ function(isConfirm){
                 <thead>
                 <tr>
                     <th scope="col">USERNAME</th>
-                    <th scope="col">STATUS</th>
-                    <th scope="col">TYPE</th>
-                    <th scope="col">CREATION DATE</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Active</th>
+                    <th scope="col">Email</th>
                     <th scope="col">UPDATE DATE</th>
                     <th scope="col">ACTION</th>
 
@@ -94,16 +94,18 @@ function(isConfirm){
                 {% for d in movies %}
                     <tr>
                         <td> {{ d.username }}</td>
-                        <td> {{ d.active }}</td>
-                        {% if d.type %}
+                        <td> {{ d.is_active }}</td>
+                        {% if d.is_staff %}
                             <td> Admin</td>
                         {% else %}
                             <td> User</td>
                         {% endif %}
-                        <td> {{ d.creation_date }}</td>
-                        <td> {{ d.update_date }}</td>
+                        <td> {{ d.email }}</td>
+                        <td> {{ d.date_joined }}</td>
                         <td>
                             <div class="col-2">
+                                {% if d.is_staff %}
+                                    {% else %}
                                 <form role="form" id="delform"
                                       action={% url 'viewuser' %} method="post">{% csrf_token %}
                                     <input type="hidden" id="userid" name="userid" value={{ d.username }}>
@@ -111,6 +113,7 @@ function(isConfirm){
                                             name="id" id="id" onclick="archiveFunction()" type="submit"><i
                                             class="fas fa-trash"></i></button>
                                 </form>
+                                {% endif %}
                             </div>
                         </td>
                     </tr>

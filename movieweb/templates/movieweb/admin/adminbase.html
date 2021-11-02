@@ -2,7 +2,7 @@
 
 
 {% block content %}
-
+{% if user.is_authenticated and user.is_staff %}
     <section class="Fouth-Section">
         <div>
             <div class="row">
@@ -12,12 +12,12 @@
                         <a href={% url 'addadmin' %}> Add Admin</a>
                         <a href={% url 'viewuser' %}>View Users</a>
                         <a href={% url 'editmovie' %}>Add Movies</a>
-                        <a href={% url 'login' %}>LogOut</a>
+                        <a href={% url 'logout' %}>LogOut</a>
                     </div>
                     <div class="text-center" style="border: #32324e; background-color: #32324e; height: 50px; width: 270px;">
                         <form method="post" action={% url 'admin-profile' %}>{% csrf_token %}
-                            <input type="hidden" id="username" name="username" value={{ user }}>
-                        <button style="border: none; background: transparent" type="submit"><span><h3 class="" style="color: white">{{ user }}</h3></span></button>
+                            <input type="hidden" id="username" name="username" value={{ user.username }}>
+                        <button style="border: none; background: transparent" type="submit"><span><h3 class="" style="color: white">{{ user.username }}</h3></span></button>
                             </form>
                     </div >
                 </div>
@@ -28,6 +28,7 @@
             </div>
         </div>
     </section>
+{% endif %}
 
 
 

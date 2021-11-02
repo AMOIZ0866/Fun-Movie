@@ -22,6 +22,11 @@ class Movie(models.Model):
     review = models.CharField(max_length=250, null=True)
     vurl = models.CharField(max_length=250)
     imageurl = models.CharField(max_length=250)
-    mrating = models.FloatField(max_length=20)
+    # mrating = models.FloatField(max_length=20)
     creation_date = models.DateTimeField()
     update_date = models.DateTimeField()
+
+class Rating(models.Model):
+    mname = models.ForeignKey(Movie, related_name='rating', on_delete=models.CASCADE)
+    mrating = models.FloatField(max_length=20)
+    noofupdate=models.IntegerField(max_length=250)

@@ -94,11 +94,14 @@
                 </tr>
                 </thead>
                 <tbody>
+
                 {% for d in movies %}
+
                     <tr>
                         <td> {{ d.mname }}</td>
                         <td> {{ d.shortdesc }}</td>
-                        <td> {{ d.mrating }}</td>
+
+                        <td> {{ d.rating }}</td>
                         <td>{{ d.creation_date }} </td>
                         <td>
                             <div>
@@ -150,11 +153,11 @@
                                                                    class="form-control" id="imageurl"
                                                                    placeholder="Image Url">
                                                         </div>
-                                                        <div class="form-group">
-                                                            <input type="text" name="mrating" value="{{ d.mrating }}"
-                                                                   class="form-control" id="mrating"
-                                                                   placeholder="Rating">
-                                                        </div>
+{#                                                        <div class="form-group">#}
+{#                                                            <input type="text" name="mrating" value="{{ d.rating }}"#}
+{#                                                                   class="form-control" id="mrating"#}
+{#                                                                   placeholder="Rating">#}
+{#                                                        </div>#}
 
                                                         <div class="text-center">
                                                             <button class="rounded-pill btn btn-primary" type="submit">

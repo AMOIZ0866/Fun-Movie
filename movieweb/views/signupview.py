@@ -2,7 +2,7 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from sweetify import sweetify
-
+from django.contrib.auth import login, authenticate
 from movieweb.serialization import CreateUserSerializer
 
 

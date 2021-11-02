@@ -1,0 +1,16 @@
+{% extends 'movieweb/base.html' %}
+
+
+{% block content %}
+
+    {% if user.is_authenticated and user.is_staff %}
+        <script>window.location.replace('/movies/adminv')</script>
+    {% elif user.is_authenticated %}
+        <script>window.location.replace('/movies/userv')</script>
+    {% else %}
+        <script>window.location.replace('/movies/login')</script>
+    {% endif %}
+
+
+
+{% endblock %}

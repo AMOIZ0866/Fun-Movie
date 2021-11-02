@@ -20,3 +20,8 @@ class UserLogin(TemplateView):
             return render(request, 'movieweb/SL/login.html', context={'error': True, 'text': "Invalid Username Or Password"})
 
 
+
+
+class HomeUser(TemplateView):
+    def get(self,request):
+        return render(request,'movieweb/home.html')
