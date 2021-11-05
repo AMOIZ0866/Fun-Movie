@@ -1,10 +1,9 @@
 ## Fun Movies Web App
 
+
 ## Objective of Project
 - In this project bascially we have made a movie web application. In which admin can upload movies links and search them. There are login for both user and admin.
 - The user can also search and preview the vedio links. The rating can also be given by a user.
-
-
 
 ## Setup Project
 
