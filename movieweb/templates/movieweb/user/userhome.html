@@ -1,0 +1,120 @@
+{% extends 'movieweb/user/userbase.html' %}
+
+{% block usercontent %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <form class="form-inline my-2 my-lg-0" action={% url 'userview' %} method="post">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+    <div class="row pl-5 pt-3">
+        {% for d in movies %}
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-body ">
+                        <div>
+                            <div class="d-flex justify-content-center"><img src="https://mr.comingsoon.it/imgdb/locandine/235x336/53715.jpg">
+                            </div>
+                        </div>
+                        <h5 class="card-title pt-2 pl-3">{{ d.mname }}</h5>
+                        <p class="card-text  pl-3 pb-0">
+                            <span>Rating: {{ d.mrating }}</span><br><span>{{ d.shortdesc }}</span></p>
+
+
+                        <div class="popup_main pb-2">
+                            <button class="open_popup">Play Trailer</button>
+                            <div class="popup_body">
+                                <div class="popup_back"></div>
+                                <div class="popup_contain">
+                                    <div class="popup_close">x</div>
+                                    <div class="embed-responsive embed-responsive-21by9">
+                                        <iframe frameborder="0" allowfullscreen class="embed-responsive-item" src="{{ d.vurl }}"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popup_main pb-2">
+                            <button class="open_popup">View Detail</button>
+                            <div class="popup_body">
+                                <div class="popup_back"></div>
+                                <div class="popup_contain">
+                                    <div class="popup_close">x</div>
+                                    <div class="row">
+                                        <div class="col-lg-2"><img class=""
+                                                                   src="https://mr.comingsoon.it/imgdb/locandine/235x336/53715.jpg">
+                                        </div>
+                                        <div class="col-lg-10 pl-5">
+                                            <h3>{{ d.mname }}</h3>
+                                            <p>{{ d.shortdesc }}</p>
+                                            <p>Rating: {{ d.rating }}</p>
+                                            <p><small>{{ d.longdesc }}</small></p>
+                                            <form role="form" action='{% url 'up-rating' %}' method="POST"
+                                                  enctype="multipart/form-data">{% csrf_token %}
+                                                <input type="text" name="rating" id="rating" placeholder="Rating">
+                                                <input type="text" name="review" id="review" placeholder="Review">
+                                                <button class="rounded-pill btn btn-primary" value="{{ d.id }}"
+                                                        name="id" id="id" type="submit">ADD
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        $(".open_popup").click(function () {
+            $(this).parent(".popup_main").children(".popup_body").addClass("popup_body_show");
+        });
+        $(".popup_close").click(function () {
+            $(".popup_body").removeClass("popup_body_show");
+        });
+        $(".popup_back").click(function () {
+            $(".popup_body").removeClass("popup_body_show");
+        });
+
+    </script>
+
+
+
+
+
+
+{% endblock %}

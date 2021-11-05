@@ -1,0 +1,32 @@
+{% extends 'movieweb/base.html' %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+    <section class="Fouth-Section">
+        <div>
+            <div class="row">
+                <div class="col-lg-2 bg-dark">
+                    <div class="vertical-menu" style="height: 780px">
+                        <a href={% url 'userview' %}>Home</a>
+                         <a href={% url 'logout' %}>LogOut</a>
+                        <div class="text-center" style="border: #32324e; background-color: #32324e; height: 50px; width: 270px;">
+                        <form method="post" action={% url 'user-profile' %}>{% csrf_token %}
+                            <input type="hidden" id="username" name="username" value={{ user.username }}>
+                        <button style="border: none; background: transparent" type="submit"><span><p class="" style="color: white;padding-top: 10px; padding-left: 15px; font-size: 18px">Profile</p></span></button>
+                            </form>
+                    </div >
+                    </div>
+
+                </div>
+                <div class="col-lg-10 bg-light pl-0">
+                    {% block usercontent %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endif %}
+
+{% endblock %}

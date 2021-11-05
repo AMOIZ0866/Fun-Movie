@@ -1,0 +1,79 @@
+{% extends 'movieweb/admin/adminbase.html' %}
+
+{% block homecontent %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <form class="form-inline my-2 my-lg-0 pl-5" action={% url 'adminview' %} method="post">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+    <div class="row pl-5 pt-3">
+        {% for d in movies %}
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-body ">
+                        <div>
+                            <div class="d-flex justify-content-center"><img src="https://mr.comingsoon.it/imgdb/locandine/235x336/53715.jpg">
+                            </div>
+                        </div>
+                        <h5 class="card-title pt-2 pl-3">{{ d.mname }}</h5>
+                        <p class="card-text  pl-3 pb-0">
+                            <span>Rating: {{ d.mrating }}</span><br><span>{{ d.shortdesc }}</span></p>
+                        <div class="popup_main pb-2">
+                            <button class="open_popup">Play Trailer</button>
+                            <div class="popup_body">
+                                <div class="popup_back"></div>
+                                <div class="popup_contain">
+                                    <div class="popup_close">x</div>
+                                    <div class="embed-responsive embed-responsive-21by9">
+                                        <iframe class="embed-responsive-item" src="{{ d.vurl }}"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="popup_main pb-2">
+                            <button class="open_popup">View Detail</button>
+                            <div class="popup_body">
+                                <div class="popup_back"></div>
+                                <div class="popup_contain">
+                                    <div class="popup_close">x</div>
+                                    <div class="row">
+                                        <div class="col-lg-2"><img class=""
+                                                                   src="https://mr.comingsoon.it/imgdb/locandine/235x336/53715.jpg">
+                                        </div>
+                                        <div class="col-lg-10 pl-5">
+                                            <h3>{{ d.mname }}</h3>
+                                            <p>{{ d.shortdesc }}</p>
+                                            <p>Rating: {{ d.rating }}</p>
+                                            <p><small>{{ d.longdesc }}</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <script>
+        $(".open_popup").click(function () {
+            $(this).parent(".popup_main").children(".popup_body").addClass("popup_body_show");
+        });
+        $(".popup_close").click(function () {
+            $(".popup_body").removeClass("popup_body_show");
+        });
+        $(".popup_back").click(function () {
+            $(".popup_body").removeClass("popup_body_show");
+        });
+
+    </script>
+
+{% endblock %}
