@@ -1,5 +1,4 @@
-## Movies Web App (Admin, User) & REST API Using DRF
-
+## Fun Movies Web App
 
 ## Objective of Project
 - In this project bascially we have made a movie web application. In which admin can upload movies links and search them. There are login for both user and admin.
@@ -79,13 +78,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-## Run Test Cases
 
-```
-python manage.py test
-python manage.py test {{app_name}}
-python manage.py test --pattern=test_*.py"
-```
 
 ## Git Branching Structure
 - Default latest branch is **Staging**
