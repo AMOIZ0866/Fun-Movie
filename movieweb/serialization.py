@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework.authtoken.admin import User
 
-from movieweb.models import Signup, Movie, Rating
+from movieweb.models import Movie, Rating
 
 
 class CreateUserSerializer(serializers.ModelSerializer):

@@ -5,7 +5,7 @@ from datetime import datetime
 
 from rest_framework.authtoken.admin import User
 
-from movieweb.models import Movie, Signup, Rating
+from movieweb.models import Movie, Rating
 from movieweb.serialization import MovieSerializer, CreateUserSerializer
 
 

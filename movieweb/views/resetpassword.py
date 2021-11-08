@@ -8,7 +8,6 @@ from django.views.generic import TemplateView
 from rest_framework.authtoken.admin import User
 from django.conf import settings
 from django.core.mail import send_mail
-from movieweb.models import Signup
 from movieweb.serialization import CreateUserSerializer
 
 
