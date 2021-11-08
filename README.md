@@ -9,8 +9,7 @@
 
 1. Clone the project using following command
 ```
-git clone https://github.com/AMOIZ0866/moviewebapp.git
-```
+git clone https://github.com/AMOIZ0866/Fun-Movie.git
 
 2. Make sure you have python 3 installed in your system
 

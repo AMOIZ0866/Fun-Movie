@@ -1,5 +1,5 @@
 from django.urls import path
-from django.contrib.auth import views as auth_views #import this
+from django.contrib.auth import views as auth_views  #import this
 from movieweb.views.adminview import Adminview, AddAdminview, ViewUser, AddUser, ViewAdminProfile, UpdateAdminProfile
 from movieweb.views.loginview import HomeUser
 from movieweb.views.movieview import UpdateRating, AddMovie, EditMovie, UpdateMovie
@@ -19,7 +19,6 @@ urlpatterns = [
     path('updatemovie', UpdateMovie.as_view(), name='update-movie'),
     path('updaterating', UpdateRating.as_view(), name='up-rating'),
     path('adduser', AddUser.as_view(), name='adduser'),
-    # path('login', UserLogin.as_view(), name='login'),
     path('editmovie', EditMovie.as_view(), name='editmovie'),
     path('adminv', Adminview.as_view(), name='adminview'),
     path('userv', Userview.as_view(), name='userview'),
