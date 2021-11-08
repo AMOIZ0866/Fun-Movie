@@ -40,7 +40,7 @@ sudo su - postgres
 4. Setup postgresql database user using postgre shell, postgres is default user, you can create your own or update default user password using following
 ```
 ALTER USER postgres PASSWORD 'newpassword';
-CREATE DATABASE cache_db;
+CREATE DATABASE moviesapp;
 ```
 
 5. Update Database connection credentials in settings/dev.py
@@ -77,6 +77,10 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+## Procedure
+Login - It is same for user and admin
+Admin - Admin can add other users
+User - User can sign up through signup page
 
 
 ## Git Branching Structure
@@ -84,10 +88,6 @@ python manage.py runserver
 - Dev is child branch for development
 - Every task branch finally merged in Staging upon completion/review.
 
-## Overview of Platforms
-Login- It is same for user and admin
-Admin- Admin can add other users
-User- User can sign up through signup page
 
 ## How to deploy new changes
 - Create a new branch from **staging** branch
