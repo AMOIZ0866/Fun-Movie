@@ -9,7 +9,7 @@ from movieweb.views.userview import Userview, UpdateUserProfile, ViewUserProfile
 
 urlpatterns = [
 
-    path('', UserSignUp.as_view(), name='sign-up'),
+    path('signup', UserSignUp.as_view(), name='sign-up'),
     path('home', HomeUser.as_view(), name='home'),
     path('addmovie', AddMovie.as_view(), name='add-movie'),
     path('updateuserprofile', UpdateUserProfile.as_view(), name='update-userprofile'),
@@ -23,7 +23,7 @@ urlpatterns = [
     path('adminv', Adminview.as_view(), name='adminview'),
     path('userv', Userview.as_view(), name='userview'),
     path('addadmin', AddAdminview.as_view(), name='addadmin'),
-    path('login/', auth_views.LoginView.as_view(template_name='movieweb/SL/login.html'), name='login'),
+    path('', auth_views.LoginView.as_view(template_name='movieweb/SL/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='movieweb/SL/logout.html'), name='logout'),
     path('viewuser', ViewUser.as_view(), name='viewuser'),
     path('password-reset/', ResetPasswordView, name='password_reset'),
