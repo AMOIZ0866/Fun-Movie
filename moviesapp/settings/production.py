@@ -1,6 +1,7 @@
 import os
 
 import dj_database_url
+import django_heroku
 
 from .base import *
 
@@ -36,3 +37,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'moviesapp/static')
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
+
+
+django_heroku.settings(locals())
