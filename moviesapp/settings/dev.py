@@ -4,6 +4,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+STATIC_URL = '/static/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -19,4 +20,5 @@ DATABASES = {
         'PORT': env('PORT'),
     }
 }
+
 
