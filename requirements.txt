@@ -19,8 +19,13 @@ oauth2client==4.1.3
 oauthlib==3.1.1
 psycopg2==2.8.6
 psycopg2-binary==2.8.6
-django==2.2.5
 gunicorn==19.9.0
 whitenoise==4.1.3
-django-heroku==2.2.5
+django-heroku
+dj_database_url
+django-environ
+sweetify~=2.1.0
+
+
+
 
