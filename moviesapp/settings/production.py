@@ -27,12 +27,12 @@ DATABASES = {
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-#location where django collect all static files
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-# location where you will store your static files
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'moviesapp/static')
-]
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = '/media/'
+
