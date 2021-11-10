@@ -10,17 +10,17 @@ ALLOWED_HOSTS = ['fumovies.herokuapp.com']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+          'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': env('PRO_DATABASE'),
+        'NAME': 'moviesapp_pro',
 
-        'USER': env('USER'),
+        'USER': 'ps',
 
-        'PASSWORD': env('PASSWORD'),
+        'PASSWORD': '<password>',
 
-        'HOST': env('HOST'),
+        'HOST': 'localhost',
 
-        'PORT': env('PORT'),
+        'PORT': '5432',
     }
 }
 
