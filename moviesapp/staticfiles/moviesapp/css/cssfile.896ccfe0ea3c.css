@@ -1,0 +1,591 @@
+
+.slidercust {
+    padding: 0;
+}
+.slidercust img{
+    width: 100%;
+    height: 250px;
+}
+
+.logo{
+  /* padding: 12px; */
+  background:#32324e;
+}
+.logo img{
+  height: 130px;
+  width: 285px;
+  /* object-fit:cover; */
+  
+}
+.body{
+  overflow: scroll;
+}
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+
+/* Login Form */
+
+.loginform .card0 {
+    box-shadow: 0px 4px 8px 0px #757575;
+    border-radius: 0px
+}
+
+.card2 {
+    margin: 0px 40px
+}
+
+
+
+.loginsection {
+    background-image: url("../bg.674e8180fa91.jpeg");
+    background-color: #cccccc;
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-size:auto;
+    position: relative; */
+  }
+  
+  
+
+  .loginsection  .form-group {
+    padding-bottom: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .loginsection .loginform input {
+   background:white;
+   height: 50px;
+   /* width: 400px; */
+  }
+
+  .loginsection .loginform{
+    padding-top: 100px;
+  }
+
+  .loginsection .loginform  button[type=submit] {
+    background:#05487a;
+    border: 0;
+    padding: 10px 35px;
+    color: #697c34;
+  }
+  .loginsection .loginform button[type=submit]:hover {
+    background: white;
+  }
+
+  .loginsection .loginform .form-group input {
+    background:white;
+    height: 50px;
+    width: 300px;;
+    /* width: 400px; */
+    
+    /* width: 400px; */
+   }
+.loginsection .loginform p{
+  color:red;
+  font-size: 16px;
+}
+
+.loginsection .loginform a{
+  color:purple;
+  font-size: 16px;
+}
+
+
+.loginsection .loginform a:hover{
+  color:white;
+  font-size: 16px;
+}
+
+.loginsection .loginform input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 5px solid #05487a;
+    outline-width: 0
+}
+
+
+.loginsection .loginform button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+
+
+/* Fourth Section */
+.Fouth-Section {
+  background: #76b5ee;
+  /*padding: 70px 0 60px;*/
+}
+
+.Fouth-Section .boxes {
+  padding: 30px 30px 25px 30px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  background: #fff;
+}
+.Fouth-Section .boxes i {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  background: #4b7dab;
+  color: #fff;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+
+.Fouth-Section .boxes p {
+  font-size: 14px;
+}
+
+
+.vertical-menu {
+  width: 285px;
+}
+
+.vertical-menu a {
+  background-color: #32324e;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  color: white;
+  display: block;
+   text-align: center;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #717171;
+  color: white;
+}
+
+
+
+.border-line {
+    border-right: 1px solid #EEEEEE
+}
+
+
+.cardclass{
+  padding: 0;
+}
+.cardclass :hover{
+ background-color: #00C6D2;
+}
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+
+
+
+
+.addadminsection {
+   padding: 0;
+  }
+
+
+
+  .addadminsection  .form-group {
+    padding-bottom: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .addadminsection .loginform input {
+   background:white;
+   height: 50px;
+   /* width: 400px; */
+  }
+
+  .addadminsection .loginform{
+    padding-top: 100px;
+  }
+
+  .addadminsection .loginform  button[type=submit] {
+    background:#32324e;
+    border: 0;
+    padding: 10px 35px;
+    color: white;
+  }
+  .addadminsection .loginform button[type=submit]:hover {
+    background: bisque;
+  }
+
+  .addadminsection .loginform .form-group input {
+    background:white;
+    height: 50px;
+    width: 300px;;
+    /* width: 400px; */
+
+    /* width: 400px; */
+   }
+.addadminsection .loginform p{
+  color:red;
+  font-size: 16px;
+}
+
+.addadminsection .loginform a{
+  color:purple;
+  font-size: 16px;
+}
+
+
+.addadminsection .loginform a:hover{
+  color:white;
+  font-size: 16px;
+}
+
+.addadminsection .loginform input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 5px solid #05487a;
+    outline-width: 0
+}
+
+
+.addadminsection .loginform button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+.addmoviessection {
+   padding: 0;
+  }
+
+
+
+  .addmoviessection  .form-group {
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .addmoviessection .loginform input {
+   background:white;
+   height: 50px;
+   /* width: 400px; */
+  }
+
+  .addmoviessection .loginform{
+    padding-top: 20px;
+  }
+
+  .addmoviessection .loginform  button[type=submit] {
+    background:#32324e;
+    border: 0;
+    padding: 10px 35px;
+    color: white;
+  }
+  .addmoviessection .loginform button[type=submit]:hover {
+    background: bisque;
+  }
+
+  .addmoviessection .loginform .form-group input {
+    background:white;
+    height: 50px;
+    width: 300px;;
+    /* width: 400px; */
+
+    /* width: 400px; */
+   }
+.addmoviessection .loginform p{
+  color:red;
+  font-size: 16px;
+}
+
+.addmoviessection .loginform a{
+  color:purple;
+  font-size: 16px;
+}
+
+
+.addmoviessection .loginform a:hover{
+  color:white;
+  font-size: 16px;
+}
+
+.addmoviessection .loginform input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 5px solid #05487a;
+    outline-width: 0
+}
+
+
+.addmoviessection .loginform button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+vid {
+    padding-left: 100px;
+    object-fit: cover;
+
+    background-color: black;
+}
+
+.vediomodal-content {
+    height: 80%;
+    width:100%;
+  background-color: #fefefe;
+  margin: auto;
+  /*padding: 20px;*/
+  border: 1px solid #888;
+  width: 80%;
+}
+
+
+.open_popup{
+  background:Red;
+  border:none;
+    border-radius: 5px;
+  /*padding:5px 15px;*/
+    width: 127px;
+    height: 40px;
+  color:#fff;
+}
+
+
+.popup_body{
+   display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  /*padding-top: 100px; !* Location of the box *!*/
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 700px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.popup_body_show{
+  display:block;
+    width: 100%; /* Full width */
+  height: 100%;
+  /*-webkit-transition: 300ms;*/
+  /*  -moz-transition: 300ms;*/
+  /*  -o-transition: 300ms;*/
+  /*  -ms-transition: 300ms;*/
+  /*  transition: 300ms;*/
+}
+.popup_back{
+  background: rgba(0,0,0,0.4);
+  position: fixed;
+  left:0;right:0;top:0;bottom:0;
+}
+.popup_contain{
+  position:relative;
+  background:#fff;
+  min-width:300px;
+  max-width:80%;
+  margin:100px auto 50px;
+  min-height:150px;
+  padding: 10px 20px;
+}
+.popup_close{
+  background:red;
+  padding:3px 10px 5px;
+  position: absolute;
+  right:-10px;
+  top:-10px;
+  color: #fff;
+  border-radius: 50%;
+}
+
+
+
+
+.errordiv{
+    /*padding-top: 10px;*/
+    height: 50px;
+    width: 350px;
+
+    background-color: white;
+    display: block;
+}
+.errordiv a{
+    color: #ff5252 ;
+    padding-top: 12px;
+}
+.errordiv a:hover{
+    color: black ;
+}
+
+.errordiv i{
+    padding-left: 10px;
+    color: black ;
+}
+.errordiv i:hover{
+    color: #76b5ee;
+}
+
+
+
+.open_popup_edit{
+  background:Red;
+  border:none;
+    border-radius: 5px;
+  /*padding:5px 15px;*/
+    width: 127px;
+    height: 40px;
+  color:#fff;
+}
+
+
+.popup_body_edit{
+   display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  /*padding-top: 100px; !* Location of the box *!*/
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 700px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.popup_body_show_edit{
+  display:block;
+    width: 100%; /* Full width */
+  height: 100%;
+  /*-webkit-transition: 300ms;*/
+  /*  -moz-transition: 300ms;*/
+  /*  -o-transition: 300ms;*/
+  /*  -ms-transition: 300ms;*/
+  /*  transition: 300ms;*/
+}
+.popup_back_edit{
+  background: rgba(0,0,0,0.4);
+  position: fixed;
+  left:0;right:0;top:0;bottom:0;
+}
+.popup_contain_edit{
+  position:relative;
+  background:#fff;
+  min-width:300px;
+  max-width:80%;
+  margin:100px auto 50px;
+  min-height:150px;
+  padding: 10px 20px;
+}
+.popup_close_edit{
+  background:red;
+  padding:3px 10px 5px;
+  position: absolute;
+  right:-10px;
+  top:-10px;
+  color: #fff;
+  border-radius: 50%;
+}
